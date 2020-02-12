@@ -35,6 +35,7 @@ let song;
 function preload() {
   song = loadSound('musicE.mp3');
 }
+
 function setup() {
    
     createCanvas(windowWidth, windowHeight);
@@ -61,13 +62,11 @@ function setup() {
 
     //Splice array
     allFontArray = allFontArray.concat(I).concat(L).concat(o).concat(v).concat(e).concat(U);
-
-    song = loadSound('musicE.mp3');
+    song.loop(); 
+    //song = loadSound('musicE.mp3');
     //Mic initiation
     input = new p5.AudioIn();
     input.start();
-
-    song.play();
 
 
 }
