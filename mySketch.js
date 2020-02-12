@@ -82,7 +82,7 @@ function draw() {
         fill(255);
         textAlign(CENTER);
         textSize(32);
-       //text("Drag mouse to add bubbles . Speak loudly or Click the space key to switch mode", width / 2, height / 2);
+        text("To Elain", width / 2, height / 2);
         textAlign(LEFT);
        // text("<--Volume Bar", 20, height - 20);
     }
