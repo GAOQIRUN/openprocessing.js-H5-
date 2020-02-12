@@ -27,8 +27,14 @@ var switchModeNow = 1;
 //Whether to let all the existed bubbles disappear or not
 var goingDead = false;
 //Ocean background theme color
-var OceanColorMode = 3;
+var OceanColorMode = 1;
 
+
+let song;
+
+function preload() {
+  song = loadSound('musicE.mp3');
+}
 function setup() {
    
     createCanvas(windowWidth, windowHeight);
@@ -46,19 +52,23 @@ function setup() {
     ChangeTheFontPosition(o, map(3, 0, 8, 200, width - 200) - 200, transY);//700,
     ChangeTheFontPosition(v, map(4, 0, 8, 200, width - 200) - 200, transY);//900,
     ChangeTheFontPosition(e, map(5, 0, 8, 200, width - 200) - 200, transY);//1100,
-    ChangeTheFontPosition(pi, map(7, 0, 8, 200, width - 200) - 200, transY);//1100,
-    ChangeTheFontPosition(di, map(7, 0, 8, 200, width - 200) - 200, transY);//1100,
-    ChangeTheFontPosition(t, map(8, 0, 8, 200, width - 200) - 200, transY);//1100,
+    //ChangeTheFontPosition(U, map(7, 0, 8, 200, width - 200) - 200, transY);//1100,
+    //ChangeTheFontPosition(di, map(7, 0, 8, 200, width - 200) - 200, transY);//1100,
+    ChangeTheFontPosition(U, map(8, 0, 8, 200, width - 200) - 200, transY);//1100,
    
     //Translation of the love shape
     ChangeTheFontPosition(heart, map(1, 0, 2, 200, width - 200) - 300, map(1, 0, 2, 0, height) - 300);
 
     //Splice array
-    allFontArray = allFontArray.concat(I).concat(L).concat(o).concat(v).concat(e).concat(pi).concat(di).concat(t);
+    allFontArray = allFontArray.concat(I).concat(L).concat(o).concat(v).concat(e).concat(U);
 
+    song = loadSound('musicE.mp3');
     //Mic initiation
     input = new p5.AudioIn();
     input.start();
+
+    song.play();
+
 
 }
 
@@ -73,15 +83,15 @@ function draw() {
         fill(255);
         textAlign(CENTER);
         textSize(32);
-        text("Drag mouse to add bubbles . Speak loudly or Click the space key to switch mode", width / 2, height / 2);
+       //text("Drag mouse to add bubbles . Speak loudly or Click the space key to switch mode", width / 2, height / 2);
         textAlign(LEFT);
-        text("<--Volume Bar", 20, height - 20);
+       // text("<--Volume Bar", 20, height - 20);
     }
 
     //System function to get the volume directly
     let volume = input.getLevel();
     //Draw a volume bar
-    drawTheVolumeBar(volume);
+    //drawTheVolumeBar(volume);
  
     //Change the bubbles running mode and background theme color when exceeding the volume threshold
     if (volume > threshold) {
