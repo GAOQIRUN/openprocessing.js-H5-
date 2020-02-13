@@ -87,7 +87,7 @@ function draw() {
        // text("<--Volume Bar", 20, height - 20);
     }
 
-    text("To   Elain", width-200, height - 20);
+    text("To   Elaine", width-200, height - 20);
 
     //System function to get the volume directly
     let volume = input.getLevel();
